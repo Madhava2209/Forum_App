@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<div class="container" style="display: flex;">
+    <div style="width: 500px;margin-right: 20px;">
+        <h1>Questions:</h1>
+        <div class="card">
+        {% for q in question %}
+            <p>{{q.question}}</p>
+            <p>{{q.author}}|{{q.timestamp}}</p>
+        {% endfor %}
+        <a href=""><button class="btn btn-outline-warning">Answer</button></a>
+        </div>
+    </div>
+    <div style="width: 500px;">
+        <h1>Answers:</h1>
+        <div  class="card">
+        {% for a in answer %}
+            <p>{{a.answer}}</p>
+            <p>{{a.author}}|{{a.timestamp}}|Upvote:{{a.upvotes}}</p>
+        {% endfor %}
+        <a href=""><button class="btn btn-outline-primary">Upvote</button></a>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

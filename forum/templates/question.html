@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container" style="display: flex;">
+<div style="width: 600px;margin-right: 20px;">
+    <h1>Questions:</h1>
+    <div class="card" style="padding:10px">
+    {% for q in question %}
+        <p>{{q.question}}</p>
+        <p>Posted by {{q.author}} | {{q.timestamp}}</p>
+    {% endfor %}
+    <a href=""><button class="btn btn-outline-warning">Answer</button></a>
+    </div>
+    
+</div style="width:300px;">
+<div>
+    <h1>Post Your Question</h1>
+    <form action="/questions/" method="post" class="form-group">
+        {% csrf_token %}
+        <input type="text" name="question" class="form-control" placeholder="Enter your question" style="width: 400px;">
+        <br>
+        <button type="submit" class="btn btn-outline-danger">Submit</button>
+    </form>
+</div>
+</div>
+{% endblock %}
