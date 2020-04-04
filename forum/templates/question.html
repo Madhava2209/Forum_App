@@ -9,8 +9,10 @@
         <div class="card" style="padding: 10px; margin-bottom: 10px;">
             <div style="display: flex; justify-content: space-between;">
             <h6>{{q.question}}</h6>
+            {% if user == q.author %}
             <button class="btn btn-outline-info" style="width: 80px;"><a href="/delete_question/{{q.id}}/" style="text-decoration: none;">Delete</a></button>
-            </div>
+            {% endif %}
+        </div>
             <p>Posted by {{q.author}} | {{q.timestamp}}</p>
             <button class="btn btn-outline-warning" style="width: 100px;"><a href="/discussion/{{q.id}}/" style="text-decoration: none;">Answer</a></button><br>
         </div>

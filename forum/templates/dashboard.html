@@ -27,8 +27,10 @@
         <div  class="card" style="padding: 10px;margin-bottom: 10px;">
             <div style="display: flex;justify-content: space-between;">
             <h6>{{a.answer}}</h6>
+            {% if user == a.author %}
             <button class="btn btn-outline-warning" style="width: 80px;"><a href="/delete_answer/{{a.id}}/" style="text-decoration: none;">Delete</a></button>
-            </div>
+            {% endif %}
+        </div>
             <p>{{a.author}} | {{a.timestamp}} | Upvote:{{a.upvotes}}</p>
             <button class="btn btn-outline-primary" style="width: 100px;"><a href="/upvote/{{a.id}}/"style="text-decoration: none;">Upvote</a></button>
         </div>

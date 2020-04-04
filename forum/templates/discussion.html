@@ -8,7 +8,9 @@
         <div class="card" style="padding: 10px;width: 600px;margin-bottom: 10px;">
             <div style="display: flex;justify-content: space-between;">
             <p>{{a.answer}}</p>
+            {% if user == a.author %}
             <button class="btn btn-outline-warning" style="width: 80px;"><a href="/delete_answer/{{a.id}}/" style="text-decoration: none;">Delete</a></button>
+            {% endif %}
         </div>
             <label> Answered by {{a.author}} | {{a.timestamp}} | Upvotes:{{a.upvotes}}</label>
             <button class="btn btn-outline-info" style="width: 100px;"><a href="/upvote/{{a.id}}/" style="text-decoration: none;">Upvote</a></button>
