@@ -10,7 +10,7 @@ def dashboard(request):
 
 
 def questions(request):
-    all_question=Question.objects.all()
+    all_question=Question.objects.all().order_by("-timestamp")
     if request.method=="POST":
         qstn=request.POST["question"]
         user=request.user
@@ -45,5 +45,22 @@ def upvote(request,discussion_id):
     answer.upvotes +=1
     answer.save()
     upvotess=Upvote.objects.create(reader=request.user,answer=answer)
-    return redirect(f"/discussion/{discussion_id}/")
+    return redirect("/dashboard/")
 
+def delete_question(request,question_id):
+    question_instance=Question.objects.get(pk=question_id)
+    user=request.user
+    author=question_instance.author
+    if author==user:
+        question_instance.delete()
+        return redirect("/dashboard/")
+    return redirect("/dashboard/")
+
+def delete_answer(request,answer_id):
+    answer_instance=Answer.objects.get(pk=answer_id)
+    user=request.user
+    author=answer_instance.author
+    if author==user:
+        answer_instance.delete()
+        return redirect("/dashboard/")
+    return redirect("/dashboard/")
