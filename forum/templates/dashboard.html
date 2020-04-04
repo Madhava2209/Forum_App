@@ -5,23 +5,28 @@
 <div class="container" style="display: flex;">
     <div style="width: 500px;margin-right: 20px;">
         <h1>Questions:</h1>
-        <div class="card">
+        
         {% for q in question %}
-            <p>{{q.question}}</p>
-            <p>{{q.author}}|{{q.timestamp}}</p>
+            <div class="card" style="padding: 10px;margin-bottom: 10px;">
+                <p>{{q.question}}</p>
+                <p>Posted by {{q.author}} | {{q.timestamp}}</p>
+                <button class="btn btn-outline-warning" style="width: 100px;"><a href="/discussion/{{q.id}}/" style="text-decoration: none;">Answer</a></button>
+            </div>
         {% endfor %}
-        <a href=""><button class="btn btn-outline-warning">Answer</button></a>
-        </div>
+        
     </div>
     <div style="width: 500px;">
         <h1>Answers:</h1>
-        <div  class="card">
+        
         {% for a in answer %}
+        <div  class="card" style="padding: 10px;margin-bottom: 10px;">
             <p>{{a.answer}}</p>
-            <p>{{a.author}}|{{a.timestamp}}|Upvote:{{a.upvotes}}</p>
-        {% endfor %}
-        <a href=""><button class="btn btn-outline-primary">Upvote</button></a>
+            <p>{{a.author}} | {{a.timestamp}} | Upvote:{{a.upvotes}}</p>
+            <button class="btn btn-outline-primary" style="width: 100px;"><a href="/upvote/{{a.id}}/"style="text-decoration: none;">Upvote</a></button>
         </div>
+        {% endfor %}
+        
+        
     </div>
 
 </div>

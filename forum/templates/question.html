@@ -4,12 +4,14 @@
 <div class="container" style="display: flex;">
 <div style="width: 600px;margin-right: 20px;">
     <h1>Questions:</h1>
-    <div class="card" style="padding:10px">
+    <div  style="padding:10px">
     {% for q in question %}
-        <p>{{q.question}}</p>
-        <p>Posted by {{q.author}} | {{q.timestamp}}</p>
+        <div class="card" style="padding: 10px; margin-bottom: 10px;">
+            <p>{{q.question}}</p>
+            <p>Posted by {{q.author}} | {{q.timestamp}}</p>
+            <button class="btn btn-outline-warning" style="width: 100px;"><a href="/discussion/{{q.id}}/" style="text-decoration: none;">Answer</a></button><br>
+        </div>
     {% endfor %}
-    <a href=""><button class="btn btn-outline-warning">Answer</button></a>
     </div>
     
 </div style="width:300px;">

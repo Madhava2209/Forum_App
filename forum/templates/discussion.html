@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div>
+        <h1>POst Your Answer</h1>
+        <form action="/discussion/{{question.id}}/" method="post" class="form-group">
+            {% csrf_token %}
+            <input type="text" name="answer" class="form-control" placeholder="Enter The Answer">
+            <br>
+            <button type="submit" class="btn btn-outline-danger">Submit</button>
+        
+        </form>
+    </div>
+    <div>
+        <h1>All Answers</h1>
+        {% for a in discussion %}
+        <div class="card" style="padding: 10px;width: 600px;margin-bottom: 10px;">
+            <p>{{a.answer}}</p>
+            <label> Answered by {{a.author}} | {{a.timestamp}} | Upvotes:{{a.upvotes}}</label>
+            <a href="/upvote/{{a.id}}/"><button class="btn btn-outline-info" style="width: 100px;">Upvote</button></a>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
