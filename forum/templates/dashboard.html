@@ -2,9 +2,10 @@
 
 
 {% block body %}
+<h1 style="padding-right: 850px;">Dashboard</h1>
 <div class="container" style="display: flex;">
-    <div style="width: 500px;margin-right: 20px;">
-        <h1>Questions:</h1>
+    <div style="width: 500px;margin-right: 20px; margin-top: 30px;">
+        <h1>All Questions:</h1>
         
         {% for q in question %}
             <div class="card" style="padding: 10px;margin-bottom: 10px;">
@@ -20,8 +21,8 @@
         {% endfor %}
         
     </div>
-    <div style="width: 500px;">
-        <h1>Answers:</h1>
+    <div style="width: 500px; margin-top: 30px;">
+        <h1>All Answers:</h1>
         
         {% for a in answer %}
         <div  class="card" style="padding: 10px;margin-bottom: 10px;">
@@ -31,7 +32,7 @@
             <button class="btn btn-outline-warning" style="width: 80px;"><a href="/delete_answer/{{a.id}}/" style="text-decoration: none;">Delete</a></button>
             {% endif %}
         </div>
-            <p>{{a.author}} | {{a.timestamp}} | Upvote:{{a.upvotes}}</p>
+            <p>Answered by {{a.author}} | {{a.timestamp}} | Upvote:{{a.upvotes}}</p>
             <button class="btn btn-outline-primary" style="width: 100px;"><a href="/upvote/{{a.id}}/"style="text-decoration: none;">Upvote</a></button>
         </div>
         {% endfor %}

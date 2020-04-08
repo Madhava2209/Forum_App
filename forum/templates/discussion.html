@@ -18,7 +18,7 @@
         {% endfor %}
     </div>
     <div>
-        <h1>POst Your Answer</h1><br>
+        <h1>Post Your Answer</h1><br>
         <form action="/discussion/{{question.id}}/" method="post" class="form-group">
             {% csrf_token %}
             <h6>{{question.question}}</h6>
