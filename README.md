@@ -12,3 +12,5 @@ Features Included:
 6.View All Answers to Questions
 7.Post a New Answer to a Particular Question
 8.Upvote Once for a Particular Answer
+9.Delete Answer
+10.Delete Question
